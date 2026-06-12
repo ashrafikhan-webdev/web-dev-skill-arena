@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Dev Skill Arena</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="intro" id="introView">
+        <div class="brand-row">
+          <span class="mark">WD</span>
+          <div>
+            <p class="eyebrow">Practical knowledge test</p>
+            <h1>Web Dev Skill Arena</h1>
+          </div>
+        </div>
+
+        <div class="intro-grid">
+          <div class="intro-copy">
+            <p>
+              Start with simple web development fundamentals, discover your current
+              level, then grow step by step into stronger real-world skills.
+            </p>
+            <div class="mode-panel">
+              <p class="panel-label">Choose your run</p>
+              <div class="mode-options" role="radiogroup" aria-label="Quiz mode">
+                <button class="mode-card active" data-mode="check" type="button">
+                  <span>Level Check</span>
+                  <small>12 easy questions to understand your basics</small>
+                </button>
+                <button class="mode-card" data-mode="fundamentals" type="button">
+                  <span>Fundamentals</span>
+                  <small>18 questions across HTML, CSS, JS, web, and Git</small>
+                </button>
+                <button class="mode-card" data-mode="next" type="button">
+                  <span>Next Step</span>
+                  <small>12 practical questions after the basics feel clear</small>
+                </button>
+              </div>
+            </div>
+            <button class="primary-action" id="startBtn" type="button">
+              Start Skill Run
+            </button>
+          </div>
+
+          <div class="stat-board" aria-label="Quiz features">
+            <div>
+              <strong>Basic</strong>
+              <span>first approach</span>
+            </div>
+            <div>
+              <strong>Level</strong>
+              <span>diagnosis</span>
+            </div>
+            <div>
+              <strong>XP</strong>
+              <span>streak scoring</span>
+            </div>
+            <div>
+              <strong>Report</strong>
+              <span>roadmap after run</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="arena hidden" id="quizView" aria-live="polite">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow" id="zoneLabel">Zone</p>
+            <h2 id="questionCounter">Question</h2>
+          </div>
+          <div class="score-strip">
+            <span>XP <strong id="scoreText">0</strong></span>
+            <span>Streak <strong id="streakText">0</strong></span>
+            <span>Timer <strong id="timerText">30</strong>s</span>
+          </div>
+        </header>
+
+        <div class="progress-track" aria-hidden="true">
+          <div id="progressBar"></div>
+        </div>
+
+        <article class="question-card">
+          <div class="difficulty-row">
+            <span id="difficultyBadge">Normal</span>
+            <span id="typeBadge">Scenario</span>
+          </div>
+          <h3 id="questionText"></h3>
+          <div class="answers" id="answers"></div>
+        </article>
+
+        <aside class="feedback hidden" id="feedbackPanel">
+          <h3 id="feedbackTitle"></h3>
+          <p id="feedbackText"></p>
+          <button class="secondary-action" id="nextBtn" type="button">Next</button>
+        </aside>
+      </section>
+
+      <section class="results hidden" id="resultView">
+        <div class="result-hero">
+          <p class="eyebrow">Run complete</p>
+          <h2 id="rankTitle"></h2>
+          <p id="rankSummary"></p>
+          <div class="final-score">
+            <span id="finalScore">0</span>
+            <small>total XP</small>
+          </div>
+        </div>
+
+        <div class="result-grid">
+          <div class="breakdown">
+            <h3>Skill Breakdown</h3>
+            <div id="breakdownList"></div>
+          </div>
+          <div class="roadmap">
+            <h3>Next Training Focus</h3>
+            <ol id="roadmapList"></ol>
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button class="primary-action" id="retryBtn" type="button">Play Again</button>
+          <button class="secondary-action" id="reviewBtn" type="button">Review Answers</button>
+        </div>
+      </section>
+
+      <dialog id="reviewDialog">
+        <div class="dialog-head">
+          <h3>Answer Review</h3>
+          <button id="closeReviewBtn" type="button" aria-label="Close review">X</button>
+        </div>
+        <div id="reviewList" class="review-list"></div>
+      </dialog>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
